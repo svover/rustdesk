@@ -1086,9 +1086,8 @@ fn get_api_server_(api: String, custom: String) -> String {
 
 #[inline]
 pub fn is_public(url: &str) -> bool {
-    false
-    /// let url = url.to_ascii_lowercase();
-    /// url.contains("rustdesk.com/") || url.ends_with("rustdesk.com")
+    let url = url.to_ascii_lowercase();
+    url.contains("rustdesk.com/") || url.ends_with("rustdesk.com")
 }
 
 pub fn get_udp_punch_enabled() -> bool {
@@ -2371,7 +2370,11 @@ static STUNS_V4: [&str; 3] = [
     "stun.voipstunt.com:3478",
 ];
 
-static STUNS_V6: [&str; 3] = [];
+static STUNS_V6: [&str; 3] = [
+    "stun.miwifi.com:3478",
+    "stun.easyvoip.com:3478",
+    "stun.voipstunt.com:3478",
+];
 
 pub async fn test_nat_ipv4() -> ResultType<(SocketAddr, String)> {
     use hbb_common::futures::future::{select_ok, FutureExt};
