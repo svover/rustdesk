@@ -90,22 +90,6 @@ class _OnlineStatusWidgetState extends State<OnlineStatusWidget> {
                 Flexible(
                   child: InkWell(
                     onTap: onUsePublicServerGuide,
-                    child: Row(
-                      children: [
-                        Flexible(
-                          child: Text(
-                            translate('setup_server_tip'),
-                            style: TextStyle(
-                                decoration: TextDecoration.underline,
-                                fontSize: em),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                )
-              ],
-            ),
           ),
         );
 
