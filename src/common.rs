@@ -2373,11 +2373,7 @@ static STUNS_V4: [&str; 3] = [
     "stun.voipstunt.com:3478",
 ];
 
-static STUNS_V6: [&str; 3] = [
-    "stun.miwifi.com:3478",
-    "stun.easyvoip.com:3478",
-    "stun.voipstunt.com:3478",
-];
+static STUNS_V6: [&str; 3] = [];
 
 pub async fn test_nat_ipv4() -> ResultType<(SocketAddr, String)> {
     use hbb_common::futures::future::{select_ok, FutureExt};
