@@ -1086,8 +1086,9 @@ fn get_api_server_(api: String, custom: String) -> String {
 
 #[inline]
 pub fn is_public(url: &str) -> bool {
-    let url = url.to_ascii_lowercase();
-    url.contains("rustdesk.com/") || url.ends_with("rustdesk.com")
+    false
+    /// let url = url.to_ascii_lowercase();
+    /// url.contains("rustdesk.com/") || url.ends_with("rustdesk.com")
 }
 
 pub fn get_udp_punch_enabled() -> bool {
@@ -2367,15 +2368,15 @@ async fn stun_ipv4_test(stun_server: &str) -> ResultType<(SocketAddr, String)> {
 }
 
 static STUNS_V4: [&str; 3] = [
-    "stun.l.google.com:19302",
-    "stun.cloudflare.com:3478",
-    "stun.nextcloud.com:3478",
+    "stun.miwifi.com:3478",
+    "stun.easyvoip.com:3478",
+    "stun.voipstunt.com:3478",
 ];
 
 static STUNS_V6: [&str; 3] = [
-    "stun.l.google.com:19302",
-    "stun.cloudflare.com:3478",
-    "stun.nextcloud.com:3478",
+    "stun.miwifi.com:3478",
+    "stun.easyvoip.com:3478",
+    "stun.voipstunt.com:3478",
 ];
 
 pub async fn test_nat_ipv4() -> ResultType<(SocketAddr, String)> {
