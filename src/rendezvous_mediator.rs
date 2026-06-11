@@ -395,15 +395,18 @@ impl RendezvousMediator {
                 });
             }
             Some(rendezvous_message::Union::ConfigureUpdate(cu)) => {
-                let v0 = Config::get_rendezvous_servers();
-                Config::set_option(
-                    "rendezvous-servers".to_owned(),
-                    cu.rendezvous_servers.join(","),
-                );
-                Config::set_serial(cu.serial);
-                if v0 != Config::get_rendezvous_servers() {
-                    Self::restart();
-                }
+    // 完全禁用服务端下发的配置覆盖，保持自定义服务器地址
+    log::info!("Ignoring ConfigureUpdate from server to keep custom rendezvous server");
+    // 原代码全部注释掉
+    // let v0 = Config::get_rendezvous_servers();
+    // Config::set_option(
+    //     "rendezvous-servers".to_owned(),
+    //     cu.rendezvous_servers.join(","),
+    // );
+    // Config::set_serial(cu.serial);
+    // if v0 != Config::get_rendezvous_servers() {
+    //     Self::restart();
+    // }
             }
             _ => {}
         }
